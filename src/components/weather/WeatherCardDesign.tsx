@@ -6,7 +6,7 @@ export default function WeatherCardDesign() {
     <>
       <Card className="w-[300px] h-full p-5 mt-16 flex  ">
         <h3>
-          A simple weather
+          A simple weather app
           <br /> made with next 14
         </h3>
       </Card>
