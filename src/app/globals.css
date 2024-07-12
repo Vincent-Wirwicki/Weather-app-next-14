@@ -59,6 +59,31 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #3a3a3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7e7e7e;
+  border-radius: 100vh;
+  /* border: 1px solid */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a5a5a5;
+}
+
 @layer base {
   * {
     @apply border-border dark;
@@ -75,10 +100,12 @@
   }
 
   .button {
-    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors  disabled:pointer-events-none disabled:opacity-50
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50
   }
 
   /* .button-outline{
     @apply 
   } */
 }
+
+@layer utilities {}

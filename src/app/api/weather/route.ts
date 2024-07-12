@@ -1,6 +1,5 @@
-
 import { CitiesType } from "@/types/cityType";
-import { WeatherDataType } from "@/types/weatherType";
+import { WeatherCurrent } from "@/types/weatherCurrentType";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -28,7 +27,7 @@ export async function GET(req: Request) {
 
     if (!weatherData.ok) return NextResponse.json({ error: "city not found" });
 
-    const data = (await weatherData.json()) as WeatherDataType;
+    const data = (await weatherData.json()) as WeatherCurrent;
     return NextResponse.json({ data, geocode });
   } catch (error) {
     return NextResponse.json(JSON.stringify({ error: `${error}` }));

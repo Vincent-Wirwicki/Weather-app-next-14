@@ -1,5 +1,6 @@
 import { CitiesType } from "@/types/cityType";
-import { WeatherDataType } from "@/types/weatherType";
+import { WeatherCurrent } from "@/types/weatherCurrentType";
+import { WeatherForecast } from "@/types/weatherForcastType";
 
 export async function getWeahter(q: string) {
   try {
@@ -8,25 +9,32 @@ export async function getWeahter(q: string) {
     );
 
     const city = (await geocode.json()) as CitiesType;
-    if (!city) throw new Error("city dont exist");
     const lat = city[0].lat;
     const lon = city[0].lon;
 
-    const weatherData = await fetch(
+    if (!lat || !lon) throw new Error("city not found");
+
+    const dataCurrent = await fetch(
       `${process.env.API_URL}/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_TOKEN}&units=metric`
     );
-    const weather = (await weatherData.json()) as WeatherDataType;
+    const dataForecast = await fetch(
+      `${process.env.API_URL}/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.API_TOKEN}&units=metric`
+    );
+
+    const current = (await dataCurrent.json()) as WeatherCurrent;
+    const forcast = (await dataForecast.json()) as WeatherForecast;
 
     const data = {
       city: city[0].name,
       weather: {
-        main: weather.weather[0].main,
-        temp: {
-          curr: weather.main.temp,
-          feel: weather.main.feels_like,
+        current: {
+          main: current.weather[0].main,
+          temp: current.main.temp,
         },
+        forcast: forcast.list,
       },
     };
+
     return data;
   } catch (error) {
     throw new Error(`${error}`);

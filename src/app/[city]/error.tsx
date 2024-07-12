@@ -17,7 +17,7 @@ export default function ErrorBoundary({
   }, [error]);
 
   return (
-    <Card className="w-[300px] h-[288px] p-5 mt-16 flex flex-col justify-center items-center">
+    <Card className="w-[300px] h-[288px] p-5 flex flex-col justify-center items-center">
       <p>Something went wrong</p>
       <p>Try a new research</p>
       <Link href="/" className="underline">

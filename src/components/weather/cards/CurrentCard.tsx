@@ -1,22 +1,27 @@
+import { Card } from "@/components/ui/card";
 import { Separator } from "@radix-ui/react-separator";
-import { Card } from "../ui/card";
-import { ResData } from "@/types/dataType";
 
-export default function WeatherCard({ data }: { data: ResData | null }) {
+export default function CurrentCard({
+  city,
+  current,
+}: {
+  city: string;
+  current: { main: string; temp: number };
+}) {
   return (
-    <Card className="w-[300px] h-full p-5 mt-16 flex flex-col justify-center items-center">
+    <Card className="w-[300px] h-full p-5 flex flex-col justify-center items-center">
       <p className="text-2xl uppercase font-light tracking-wider">
-        {data?.city || "not found"}
+        {city || "not found"}
       </p>
       <Separator
         orientation="horizontal"
         className="w-3/4 h-[1px] bg-neutral-200 my-5"
       ></Separator>
       <p className="text-6xl font-bold py-5">
-        {data?.weather.temp.curr.toFixed(0) || "0"}°
+        {current?.temp.toFixed(0) || "0"}°
       </p>
       <p className="text-2xl font-bold uppercase tracking-wider">
-        {data?.weather.main || "not found"}
+        {current?.main || "not found"}
       </p>
       <Separator
         orientation="horizontal"

@@ -1,14 +1,14 @@
 import { getWeahter } from "../actions/actions";
-import WeatherCard from "@/components/weather/WeatherCard";
 import { Suspense } from "react";
 import Loading from "./loading";
+import WeatherCards from "@/components/weather/WeatherCards";
 
 async function WeatherData({ city }: { city: string }) {
   const data = await getWeahter(city);
 
   return (
     <Suspense fallback={<Loading />}>
-      <WeatherCard data={data} />
+      <WeatherCards weather={data} />
     </Suspense>
   );
 }

@@ -17,11 +17,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MainNav />
-        <main className="flex min-h-screen flex-col items-center p-24">
-          {children}
+        <main className="flex min-h-screen flex-col w-screen items-center p-24">
+          <section className="w-[350px] flex flex-col items-center">
+            {" "}
+            <MainNav />
+            {children}
+          </section>
         </main>
       </body>
     </html>
   );
 }
+// flex min-h-screen flex-col items-center p-24
