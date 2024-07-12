@@ -12,7 +12,7 @@ export async function getWeahter(q: string) {
     const lat = city[0].lat;
     const lon = city[0].lon;
 
-    if (!lat || !lon) throw new Error("city not found");
+    // if (!lat || !lon) throw new Error("city not found");
 
     const dataCurrent = await fetch(
       `${process.env.API_URL}/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_TOKEN}&units=metric`
