@@ -28,20 +28,20 @@ export default function ForcastCard({ forcast }: { forcast: WeatherData[] }) {
     return hour;
   };
   return (
-    <section className=" h-[300px] w-[350px] mt-2 overflow-y-scroll ">
+    <section className="h-[300px] w-[350px] mt-10 overflow-y-scroll translate-x-2">
       {Object.entries(groupedPerDay).map(([key, items], i) => (
-        <article key={i} className="w-[345px] pt-5">
-          <h1 className="text-center uppercase">{key}.</h1>
+        <article key={i} className="w-[340px] pt-5 relative">
+          <h1 className="text-center uppercase text-neutral-500 ">{key}.</h1>
           <Card className="grid grid-cols-4 gap-4 p-4 w-full">
             {items.map(({ main, weather, dt_txt }, j) => (
-              <div key={j} className="flex flex-col justify-end items-start ">
-                <p className="font-light tracking-wider w-full ">
+              <div key={j} className="flex flex-col text-lg text-center ">
+                <p className="tracking-wider w-full translate-y-2 translate-x-1">
                   {main.feels_like.toFixed(0)}°
                 </p>
-                <p className="lowercase border-b border-neutral-200 w-full">
-                  {weather[0].main}
+                <p className="lowercase border-b border-neutral-500 w-full">
+                  {weather[0].main.substring(0, 7)}
                 </p>
-                <p className="text-xs pt-1 w-full font-light">
+                <p className="text-xs text-neutral-500 pt-1 w-full font-light">
                   {dateToText(dt_txt)}
                 </p>
               </div>

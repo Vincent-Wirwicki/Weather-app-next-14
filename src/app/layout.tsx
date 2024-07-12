@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import MainNav from "@/components/nav/MainNav";
-const inter = Inter({ subsets: ["latin"] });
+const inter = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Weath App with Next SSR",

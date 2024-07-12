@@ -22,13 +22,17 @@ export default function Search() {
       <div className="flex gap-2 items-center">
         <Input
           id="seartch-city"
+          className="shadow-md shadow-neutral-900"
           type="text"
           placeholder="search a city"
           value={input}
           onChange={onChange}
         />
         <Link href={`/${input.toLocaleLowerCase()}`} onClick={handleError}>
-          <Button variant="outline"> Search </Button>
+          <Button variant="outline" className="shadow-md shadow-neutral-900">
+            {" "}
+            Search{" "}
+          </Button>
         </Link>
       </div>
       {error && <p className="text-xs text-red-500">empty input</p>}

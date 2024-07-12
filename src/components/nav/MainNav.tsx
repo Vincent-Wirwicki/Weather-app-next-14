@@ -4,8 +4,8 @@ import Search from "../search/Search";
 export default function MainNav() {
   return (
     <nav className=" p-5 ">
-      <Link href="/">
-        <h1 className="text-2xl font-bold">Weather App</h1>{" "}
+      <Link href="/" className="text-lg text-neutral-600 font-bold border-b w-fit pb-2">
+        <h1>Minimal weather</h1>
       </Link>
       <Search />
     </nav>
